@@ -41,9 +41,11 @@ a { color: inherit; text-decoration: none; }
   --bg-alt: #1c1813;
   --surface: #221d17;
   --text: #f3ece1;
-  --muted: #b7a994;
-  --accent: #c8975a;     /* warm gold */
-  --accent-2: #6fae9f;   /* sea green */
+  --muted: #cdc0aa;
+  --accent: #d6a45f;     /* warm gold (accent text: prices, icons) */
+  --accent-2: #7cc0ae;   /* sea green */
+  --btn-bg: #2f6e5f;     /* deep teal buttons */
+  --btn-text: #ffffff;   /* white text on teal buttons */
   --border: rgba(243,236,225,0.10);
   --heading: "Cormorant Garamond", serif;
 }
@@ -52,12 +54,17 @@ a { color: inherit; text-decoration: none; }
   --bg-alt: #0e1120;
   --surface: #161a2b;
   --text: #eef0f7;
-  --muted: #9aa0b5;
+  --muted: #b6bccf;
   --accent: #6a5af9;     /* indigo */
   --accent-2: #ff6a88;   /* pink */
   --border: rgba(255,255,255,0.07);
   --heading: "Space Grotesk", sans-serif;
 }
+.design--hospitality .section__title { color: var(--accent); }
+.design--hospitality .feature h3 { color: var(--text); }
+.design--aurora .section__title,
+.design--aurora .service h3 { color: var(--text); }
+.design--aurora .about__text p { color: #d7dbe7; }
 .design--aurora h1, .design--aurora h2, .design--aurora h3, .design--aurora .logo { font-weight: 700; }
 .design--aurora .accent { font-style: normal; }
 .design--aurora .btn--primary {
@@ -174,11 +181,11 @@ h1, h2, h3, .logo { font-family: var(--heading); line-height: 1.12; font-weight:
 }
 .btn:hover { transform: translateY(-2px); }
 .btn--primary {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 12px 28px -12px var(--accent);
+  background: var(--btn-bg, var(--accent));
+  color: var(--btn-text, #fff);
+  box-shadow: 0 12px 28px -12px var(--btn-bg, var(--accent));
 }
-.btn--primary:hover { box-shadow: 0 16px 34px -12px var(--accent); }
+.btn--primary:hover { box-shadow: 0 16px 34px -12px var(--btn-bg, var(--accent)); }
 .btn--ghost { border-color: var(--border); color: var(--text); background: transparent; }
 .btn--ghost:hover { border-color: var(--accent); }
 
