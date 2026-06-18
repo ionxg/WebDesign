@@ -1,12 +1,37 @@
-// ---- Design switcher ----
+// ---- Build the page from the registered designs ----
 const STORAGE_KEY = "selectedDesign";
+const registered = window.__designs || [];
+
+const designRoot = document.getElementById("designRoot");
+const switcherOptions = document.getElementById("switcherOptions");
+const LABELS = {};
+
+registered.forEach((def, i) => {
+  // The design section itself
+  const main = document.createElement("main");
+  main.className = `design design--${def.name}`;
+  main.dataset.name = def.name;
+  main.hidden = i !== 0; // only the first is visible until a choice is made
+  main.innerHTML = def.html;
+  designRoot.appendChild(main);
+
+  // Its button in the switcher
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "switcher__btn";
+  btn.dataset.target = def.name;
+  btn.textContent = def.label;
+  switcherOptions.appendChild(btn);
+
+  LABELS[def.name] = def.label;
+});
+
+// ---- Design switcher ----
 const switcher = document.querySelector(".switcher");
 const switcherToggle = document.getElementById("switcherToggle");
 const switcherCurrent = switcher.querySelector(".switcher__current");
 const switcherBtns = document.querySelectorAll(".switcher__btn");
 const designs = document.querySelectorAll(".design");
-
-const LABELS = { property: "Property", hospitality: "Hospitality", aurora: "Studio" };
 
 function setDesign(name) {
   document.body.setAttribute("data-design", name);
@@ -88,10 +113,11 @@ function handleSubmit(event) {
 }
 
 // ---- Init ----
-let initial = "property";
+const names = registered.map((d) => d.name);
+let initial = names[0] || "property";
 try {
   const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved === "property" || saved === "hospitality" || saved === "aurora") initial = saved;
+  if (names.includes(saved)) initial = saved;
 } catch (e) {
   /* ignore */
 }
