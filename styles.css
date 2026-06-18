@@ -64,7 +64,12 @@ a { color: inherit; text-decoration: none; }
 .design--hospitality .feature h3 { color: var(--text); }
 .design--aurora .section__title,
 .design--aurora .service h3 { color: var(--text); }
-.design--aurora .about__text p { color: #d7dbe7; }
+#a-about .section__title,
+#a-work .section__title { color: #1d2030; }
+.design--aurora .about__text p,
+#a-work .section__sub,
+.design--aurora .hero__lead,
+.design--aurora .hero__stats span { color: #3c4150; }
 .design--aurora h1, .design--aurora h2, .design--aurora h3, .design--aurora .logo { font-weight: 700; }
 .design--aurora .accent { font-style: normal; }
 .design--aurora .btn--primary {
