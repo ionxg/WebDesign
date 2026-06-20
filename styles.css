@@ -531,18 +531,77 @@ h1, h2, h3, .logo { font-family: var(--heading); line-height: 1.12; font-weight:
 .service p { color: var(--muted); font-size: 0.92rem; }
 
 /* ============================================================
-   STARTUP (tech / SaaS) COMPONENTS
+   STARTUP (Nyx) — "out of this world" cosmic SaaS
    ============================================================ */
+
+/* ---- Hero: deep-space canvas ---- */
 .hero--startup {
   background:
-    radial-gradient(900px 480px at 85% -10%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
-    radial-gradient(760px 420px at -5% 30%, color-mix(in srgb, var(--accent-2) 22%, transparent), transparent 55%),
-    var(--bg);
+    radial-gradient(1100px 620px at 82% -20%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%),
+    radial-gradient(900px 520px at -10% 25%, color-mix(in srgb, var(--accent-2) 24%, transparent), transparent 55%),
+    radial-gradient(800px 600px at 50% 130%, rgba(244,114,182,0.16), transparent 60%),
+    #04060f;
 }
-.hero--startup .hero__glow {
-  background: radial-gradient(circle at center, rgba(34,211,238,0.35), transparent 60%),
-              radial-gradient(circle at 70% 70%, rgba(139,92,246,0.4), transparent 55%);
+
+/* Tiled starfield */
+.nyx-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(1.6px 1.6px at 50% 50%, #ffffff, transparent 60%),
+    radial-gradient(1.2px 1.2px at 50% 50%, rgba(205,232,255,0.9), transparent 60%),
+    radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.7), transparent 60%);
+  background-size: 190px 190px, 120px 120px, 70px 70px;
+  background-position: 0 0, 40px 70px, 90px 30px;
+  opacity: 0.75;
+  animation: nyxTwinkle 5s ease-in-out infinite alternate;
 }
+@keyframes nyxTwinkle { from { opacity: 0.45; } to { opacity: 0.85; } }
+
+/* Drifting nebula */
+.nyx-aurora {
+  position: absolute;
+  inset: -25% -12% auto -12%;
+  height: 130%;
+  z-index: 0;
+  filter: blur(46px);
+  background:
+    radial-gradient(closest-side at 28% 38%, rgba(34,211,238,0.30), transparent),
+    radial-gradient(closest-side at 72% 52%, rgba(139,92,246,0.34), transparent),
+    radial-gradient(closest-side at 50% 72%, rgba(244,114,182,0.22), transparent);
+  animation: nyxDrift 20s ease-in-out infinite alternate;
+}
+@keyframes nyxDrift {
+  from { transform: translate3d(-4%, -2%, 0) scale(1.05); }
+  to   { transform: translate3d(5%, 4%, 0) scale(1.16); }
+}
+
+/* ---- Hero layout: copy + orbital visual ---- */
+.nyx-hero {
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 48px;
+  padding: 120px 0 100px;
+}
+.nyx-hero__copy { max-width: 600px; }
+.nyx-title { font-size: clamp(2.8rem, 6vw, 4.8rem); }
+
+/* Glowing eyebrow chip */
+.nyx-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  color: #d7f6ff;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+  box-shadow: 0 0 34px -8px var(--accent);
+}
+
 /* Animated colour-shifting headline */
 .design--startup .grad {
   background-image: linear-gradient(120deg, #22d3ee, #8b5cf6, #f472b6, #22d3ee);
@@ -553,16 +612,149 @@ h1, h2, h3, .logo { font-family: var(--heading); line-height: 1.12; font-weight:
   0% { background-position: 0% 50%; }
   100% { background-position: 300% 50%; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .design--startup .grad { animation: none; }
+
+/* ---- Orbital visual ---- */
+.nyx-orbit {
+  position: relative;
+  width: min(420px, 78vw);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+}
+.nyx-orbit__core {
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #c8fbff, #22d3ee 38%, #8b5cf6 82%);
+  box-shadow: 0 0 90px -4px var(--accent), inset 0 0 32px rgba(255,255,255,0.45);
+  animation: nyxPulse 4s ease-in-out infinite;
+}
+@keyframes nyxPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+.nyx-orbit__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.13);
+}
+.nyx-orbit__ring--1 { width: 54%; height: 54%; animation: nyxSpin 9s linear infinite; }
+.nyx-orbit__ring--2 { width: 78%; height: 78%; animation: nyxSpin 15s linear infinite reverse; }
+.nyx-orbit__ring--3 { width: 100%; height: 100%; animation: nyxSpin 24s linear infinite; }
+@keyframes nyxSpin { to { transform: rotate(360deg); } }
+.nyx-planet {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: #22d3ee;
+  box-shadow: 0 0 18px #22d3ee;
+}
+.nyx-planet--2 { width: 11px; height: 11px; background: #f472b6; box-shadow: 0 0 16px #f472b6; }
+.nyx-planet--3 { width: 9px; height: 9px; background: #8b5cf6; box-shadow: 0 0 16px #8b5cf6; }
+
+/* ---- Logo marquee (replaces the old trust bar) ---- */
+.nyx-marquee {
+  overflow: hidden;
+  padding: 24px 0;
+  border-block: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-alt) 82%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.nyx-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 64px;
+  animation: nyxScroll 26s linear infinite;
+}
+.nyx-marquee:hover .nyx-marquee__track { animation-play-state: paused; }
+.nyx-marquee__track span {
+  font-family: var(--heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+  opacity: 0.6;
+  white-space: nowrap;
+}
+@keyframes nyxScroll { to { transform: translateX(-50%); } }
+
+/* ---- Bento feature grid (glass cards) ---- */
+.design--startup .nyx-bento {
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+.design--startup .nyx-card {
+  grid-column: span 2;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  backdrop-filter: blur(6px);
+  transition: transform 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s;
+}
+.design--startup .nyx-card--lg { grid-column: span 3; }
+.design--startup .nyx-card--lg {
+  background:
+    radial-gradient(560px 280px at 100% 0%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%),
+    linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+}
+.design--startup .nyx-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  box-shadow: 0 34px 64px -34px var(--accent);
 }
 
-/* ---- Trust bar ---- */
-.trustbar { background: var(--bg-alt); border-block: 1px solid var(--border); padding: 26px 0; }
-.trustbar__inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px 36px; }
-.trustbar span { color: var(--muted); font-size: 0.85rem; }
-.trustbar ul { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 36px; }
-.trustbar li { color: var(--text); font-family: var(--heading); font-weight: 700; font-size: 1.15rem; opacity: 0.75; }
+/* ---- Contact panel as a glass capsule ---- */
+.design--startup .nyx-panel {
+  border-radius: 28px;
+  padding: 52px 40px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background:
+    radial-gradient(700px 360px at 50% -20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
+    linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  backdrop-filter: blur(8px);
+  box-shadow: 0 50px 90px -50px var(--accent);
+}
+
+/* ---- Pricing: glass over the void ---- */
+.design--startup .plan {
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  backdrop-filter: blur(6px);
+}
+.design--startup .plan--featured {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0 44px 80px -44px var(--accent);
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .design--startup .grad,
+  .nyx-stars,
+  .nyx-aurora,
+  .nyx-orbit__core,
+  .nyx-orbit__ring,
+  .nyx-marquee__track {
+    animation: none;
+  }
+}
+
+/* ---- Startup responsive ---- */
+@media (max-width: 900px) {
+  .nyx-hero { grid-template-columns: 1fr; gap: 40px; padding: 96px 0 80px; }
+  .nyx-orbit { width: min(320px, 70vw); }
+  .design--startup .nyx-bento { grid-template-columns: repeat(2, 1fr); }
+  .design--startup .nyx-card,
+  .design--startup .nyx-card--lg { grid-column: span 1; }
+}
+@media (max-width: 620px) {
+  .design--startup .nyx-bento { grid-template-columns: 1fr; }
+  .design--startup .nyx-panel { padding: 40px 24px; }
+}
 
 /* ---- Pricing ---- */
 .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }

@@ -1,4 +1,4 @@
-// DESIGN 4 · TECH STARTUP (Nyx) — SaaS landing page
+// DESIGN 4 · TECH STARTUP (Nyx) — "out of this world" cosmic SaaS landing page
 registerDesign({
   name: "startup",
   label: "Startup",
@@ -16,36 +16,40 @@ registerDesign({
     </header>
 
     <section class="hero hero--startup">
-      <div class="container hero__inner">
-        <p class="eyebrow reveal">Backed by Y&nbsp;Combinator · Series A</p>
-        <h1 class="hero__title reveal">Ship faster with<br />AI that <span class="grad">writes the boring code</span>.</h1>
-        <p class="hero__lead reveal">
-          Nyx plugs into your stack and automates the repetitive 80% — tests,
-          migrations, and boilerplate — so your team can focus on the product.
-        </p>
-        <div class="hero__cta reveal">
-          <a href="#s-contact" class="btn btn--primary">Start free trial</a>
-          <a href="#s-features" class="btn btn--ghost">See how it works</a>
+      <div class="nyx-stars" aria-hidden="true"></div>
+      <div class="nyx-aurora" aria-hidden="true"></div>
+      <div class="container hero__inner nyx-hero">
+        <div class="nyx-hero__copy">
+          <p class="eyebrow nyx-chip reveal">◇ Backed by the void · Series A</p>
+          <h1 class="hero__title nyx-title reveal">Ship at<br /><span class="grad">escape velocity</span>.</h1>
+          <p class="hero__lead reveal">
+            Nyx plugs into your stack and automates the repetitive 80% — tests,
+            migrations, and boilerplate — so your team can leave the boring code
+            behind and reach orbit.
+          </p>
+          <div class="hero__cta reveal">
+            <a href="#s-contact" class="btn btn--primary">Start free trial</a>
+            <a href="#s-features" class="btn btn--ghost">See how it works</a>
+          </div>
+          <div class="hero__stats reveal">
+            <div><strong>12k+</strong><span>Developers onboard</span></div>
+            <div><strong>4.2M</strong><span>PRs automated</span></div>
+            <div><strong>99.99%</strong><span>Uptime SLA</span></div>
+          </div>
         </div>
-        <div class="hero__stats reveal">
-          <div><strong>12k+</strong><span>Developers onboard</span></div>
-          <div><strong>4.2M</strong><span>PRs automated</span></div>
-          <div><strong>99.99%</strong><span>Uptime SLA</span></div>
+        <div class="nyx-orbit reveal" aria-hidden="true">
+          <div class="nyx-orbit__core"></div>
+          <div class="nyx-orbit__ring nyx-orbit__ring--1"><span class="nyx-planet"></span></div>
+          <div class="nyx-orbit__ring nyx-orbit__ring--2"><span class="nyx-planet nyx-planet--2"></span></div>
+          <div class="nyx-orbit__ring nyx-orbit__ring--3"><span class="nyx-planet nyx-planet--3"></span></div>
         </div>
       </div>
-      <div class="hero__glow" aria-hidden="true"></div>
     </section>
 
-    <section class="trustbar reveal">
-      <div class="container trustbar__inner">
-        <span>Trusted by engineering teams at</span>
-        <ul>
-          <li>Vercel</li>
-          <li>Linear</li>
-          <li>Stripe</li>
-          <li>Notion</li>
-          <li>Figma</li>
-        </ul>
+    <section class="nyx-marquee reveal" aria-label="Trusted by engineering teams">
+      <div class="nyx-marquee__track">
+        <span>Vercel</span><span>Linear</span><span>Stripe</span><span>Notion</span><span>Figma</span><span>Supabase</span>
+        <span>Vercel</span><span>Linear</span><span>Stripe</span><span>Notion</span><span>Figma</span><span>Supabase</span>
       </div>
     </section>
 
@@ -53,29 +57,34 @@ registerDesign({
       <div class="container">
         <div class="section__head section__head--center">
           <span class="eyebrow">Platform</span>
-          <h2 class="section__title">Everything you need to move fast</h2>
-          <p class="section__sub">One platform, no glue code. Connect a repo and you're live in minutes.</p>
+          <h2 class="section__title">Everything you need to leave orbit</h2>
+          <p class="section__sub">One platform, no glue code. Connect a repo and you're live before your coffee lands.</p>
         </div>
-        <div class="features">
-          <div class="feature reveal">
-            <div class="feature__icon">⚡</div>
-            <h3>Instant setup</h3>
-            <p>Connect GitHub or GitLab and Nyx indexes your codebase in seconds.</p>
+        <div class="features nyx-bento">
+          <div class="feature nyx-card nyx-card--lg reveal">
+            <div class="feature__icon">🛰️</div>
+            <h3>Warp-speed setup</h3>
+            <p>Connect GitHub or GitLab and Nyx maps your entire codebase in seconds — no config, no babysitting.</p>
           </div>
-          <div class="feature reveal">
+          <div class="feature nyx-card nyx-card--lg reveal">
             <div class="feature__icon">🤖</div>
-            <h3>AI pull requests</h3>
-            <p>Describe a change in plain English and get a reviewable PR back.</p>
+            <h3>PRs from plain English</h3>
+            <p>Describe a change the way you'd say it out loud and get a clean, reviewable pull request back.</p>
           </div>
-          <div class="feature reveal">
+          <div class="feature nyx-card nyx-card--sm reveal">
             <div class="feature__icon">🔒</div>
-            <h3>SOC 2 secure</h3>
-            <p>Your code never trains our models. Encrypted in transit and at rest.</p>
+            <h3>Zero-gravity security</h3>
+            <p>SOC 2. Your code never trains our models.</p>
           </div>
-          <div class="feature reveal">
-            <div class="feature__icon">📈</div>
-            <h3>Ship analytics</h3>
-            <p>Track velocity, review time, and coverage from one dashboard.</p>
+          <div class="feature nyx-card nyx-card--sm reveal">
+            <div class="feature__icon">📡</div>
+            <h3>Ship telemetry</h3>
+            <p>Velocity, review time, and coverage in one view.</p>
+          </div>
+          <div class="feature nyx-card nyx-card--sm reveal">
+            <div class="feature__icon">🌌</div>
+            <h3>Runs anywhere</h3>
+            <p>Cloud, self-hosted, or air-gapped on your turf.</p>
           </div>
         </div>
       </div>
@@ -150,7 +159,7 @@ registerDesign({
     </section>
 
     <section class="section section--alt" id="s-contact">
-      <div class="container contact">
+      <div class="container contact nyx-panel">
         <span class="eyebrow">Get started</span>
         <h2 class="section__title">Try Nyx free for 14 days</h2>
         <p class="section__sub">No credit card required. Talk to us and we'll set your team up.</p>
