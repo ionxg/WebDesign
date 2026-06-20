@@ -578,7 +578,6 @@ h1, h2, h3, .logo { font-family: var(--heading); line-height: 1.12; font-weight:
 
 /* ---- Hero layout: copy + orbital visual ---- */
 .nyx-hero {
-  max-width: 1180px;
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
   align-items: center;
