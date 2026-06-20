@@ -74,7 +74,6 @@ a { color: inherit; text-decoration: none; }
 .design--startup h1, .design--startup h2, .design--startup h3, .design--startup .logo { font-weight: 700; }
 .design--startup .section__title { color: var(--text); }
 .design--startup .hero__title { color: #fff; }
-.design--startup #s-features .section__title { color: #000; }
 .design--startup .feature h3 { color: var(--text); }
 .design--startup .btn--primary {
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
