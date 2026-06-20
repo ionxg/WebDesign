@@ -1,20 +1,38 @@
-# Aurora landing page
+# Web design portfolio
 
-A landing page concept for a fictional creative studio. I built it to practice
-layout, responsive design, and a few small animations. It's just HTML, CSS and
-plain JavaScript, so you can open it without installing anything.
+A handful of landing page concepts I built to practice layout, responsive design,
+and a few small animations. Each one is a different fictional brand, and you can
+flip between them with the switcher in the top-right corner. It remembers your
+last pick, so it'll still be there when you come back.
+
+It's just HTML, CSS, and plain JavaScript — no build step, no dependencies. Open
+it and it runs.
+
+## The designs
+
+- **Property** — a real estate / property brand
+- **Hospitality** — a hotel-ish, warmer look
+- **Aurora** — a creative studio concept
+- **Startup** — a SaaS landing page (Nyx)
 
 ## Running it
 
-Open `index.html` in a browser. That's it.
+Open `index.html` in a browser. That's the whole thing.
 
-## What's in here
+## How it's put together
 
-- `index.html` — the shell: the design switcher and the `<script>` tags that pull everything together
+- `index.html` — the shell: the switcher and the `<script>` tags that pull everything in
 - `styles.css` — all the styling
-- `script.js` — the "middle" that combines the designs into the page, plus the switcher, the fade-in-on-scroll bits, and the fake form
+- `script.js` — the "middle" that stitches the designs into the page: the switcher,
+  fade-in-on-scroll, the demo contact form, and remembering your choice in `localStorage`
 - `designs/` — one file per design concept
-  - `registry.js` — the small `registerDesign()` helper each design uses to add itself
-  - `property.js`, `hospitality.js`, `aurora.js` — the markup for each design
+  - `registry.js` — the little `registerDesign({...})` helper each design uses to add itself
+  - `property.js`, `hospitality.js`, `aurora.js`, `startup.js` — the markup for each one
 
-Adding a new design is a new file in `designs/` (calling `registerDesign({...})`) plus one `<script>` line in `index.html`.
+## Adding another design
+
+1. Drop a new file in `designs/` that calls `registerDesign({ name, label, html })`
+2. Add one `<script>` line for it in `index.html`
+
+That's it — `script.js` picks it up from the registry and builds the switcher button
+and section automatically. The first design registered is the one shown by default.
