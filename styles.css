@@ -81,6 +81,8 @@ a { color: inherit; text-decoration: none; }
 .design--startup #s-features .section__sub { color: #14110d; }
 .design--startup .feature h3 { color: #14110d; }
 .design--startup .feature p { color: #4a4334; }
+.design--startup #s-about .section__title,
+.design--startup #s-about .about__text p { color: #000; }
 .design--startup .btn--primary {
   background: linear-gradient(120deg, var(--accent), var(--accent-2));
   color: #06121a;
