@@ -730,6 +730,8 @@ h1, h2, h3, .logo { font-family: var(--heading); line-height: 1.12; font-weight:
   background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
   backdrop-filter: blur(6px);
 }
+.design--startup .plan__name,
+.design--startup .plan__price strong { color: #fff; }
 .design--startup .plan--featured {
   border-color: color-mix(in srgb, var(--accent) 60%, transparent);
   box-shadow: 0 44px 80px -44px var(--accent);
