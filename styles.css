@@ -441,6 +441,7 @@ h1, h2, h3, .logo { font-family: var(--heading); line-height: 1.12; font-weight:
   resize: vertical;
 }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+.design--hospitality .field input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1) brightness(1.6); cursor: pointer; }
 .field label {
   position: absolute;
   left: 16px; top: 16px;
